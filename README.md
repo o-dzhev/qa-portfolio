@@ -10,6 +10,7 @@ This demo project contains e2e automated tests using Cypress for the sample e-co
 `npm install`
 
 **Project simplified structure**
+```text
 cypress/
 |-- downloads/              ← contains downloaded files
 |-- e2e/                    ← test files 
@@ -27,7 +28,7 @@ cypress/
 |-- package-lock.json       ← determinism across all environments
 |-- package.json            ← dependencies for Cypress
 |-- README.md 
-
+```
 **To run tests**
 1. Open Cypress from the project root, depending on the package manager you are using (if npm):
 `npx cypress open`
