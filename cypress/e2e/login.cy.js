@@ -1,4 +1,4 @@
-describe('SauceDemo login with random User', () => {
+describe('Saucedemo login tests', () => {
     let users;
     let randomUser;
 
@@ -57,6 +57,14 @@ describe('SauceDemo login with random User', () => {
     it('log in fails with empty fields', () => {
         cy.get('[data-test="login-button"]').click();
         cy.contains('Epic sadface: Username is required').should('be.visible');
+
+    });
+
+    it('locked user sees custom error message trying to log in', () => {
+        cy.get('[data-test="username"]').type('locked_out_user');
+        cy.get('[data-test="password"]').type(randomUser.password);
+        cy.get('[data-test="login-button"]').click();
+        cy.contains('Epic sadface: Sorry, this user has been locked out.').should('be.visible');
 
     });
 });
