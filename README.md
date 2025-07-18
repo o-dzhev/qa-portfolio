@@ -1,12 +1,10 @@
-**Cypress test automation project**
+## Cypress test automation project  
 This demo project contains e2e automated tests using Cypress for the sample e-commerce site [https://www.saucedemo.com](https://www.saucedemo.com).  
 
 **To install**
 1. Make sure you have **Node.js** and **npm** installed.
-2. Install **Cypress** if you don't have it 
-`npm install cypress --save-dev`
-3. Clone the repository `https://github.com/o-dzhev/qa-portfolio.git`
-4. Install project dependencies
+2. Clone the repository `https://github.com/o-dzhev/qa-portfolio.git`
+3. Install project dependencies
 `npm install`
 
 **Project simplified structure**

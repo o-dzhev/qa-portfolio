@@ -34,7 +34,7 @@ describe('Saucedemo login tests', () => {
         cy.get('[data-test="username"]').type('invalid');
         cy.get('[data-test="password"]').type(randomUser.password);
         cy.get('[data-test="login-button"]').click();
-        cy.contains('Epic sadface: Username and password do not match any user in this service').should('be.visible');
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');
 
     });
 
@@ -42,7 +42,7 @@ describe('Saucedemo login tests', () => {
         cy.get('[data-test="username"]').type(randomUser.username);
         cy.get('[data-test="password"]').type('000000');
         cy.get('[data-test="login-button"]').click();
-        cy.contains('Epic sadface: Username and password do not match any user in this service').should('be.visible');
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');
 
     });
 
@@ -50,8 +50,7 @@ describe('Saucedemo login tests', () => {
         cy.get('[data-test="username"]').type('invalid');
         cy.get('[data-test="password"]').type('000000');
         cy.get('[data-test="login-button"]').click();
-        cy.contains('Epic sadface: Username and password do not match any user in this service').should('be.visible');
-
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service');
     });
 
     it('log in fails with empty fields', () => {
@@ -64,7 +63,7 @@ describe('Saucedemo login tests', () => {
         cy.get('[data-test="username"]').type('locked_out_user');
         cy.get('[data-test="password"]').type(randomUser.password);
         cy.get('[data-test="login-button"]').click();
-        cy.contains('Epic sadface: Sorry, this user has been locked out.').should('be.visible');
+        cy.get('[data-test="error"]').should('contain', 'Epic sadface: Sorry, this user has been locked out.');
 
     });
 });

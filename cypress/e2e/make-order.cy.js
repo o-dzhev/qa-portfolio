@@ -1,13 +1,13 @@
 describe('Saucedemo order completion', () => {
 
-    beforeEach(() => {
+    before(() => {
         cy.visit('https://www.saucedemo.com');
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('secret_sauce');
         cy.get('[data-test="login-button"]').click();
     });
 
-    it('Select an item and place an order', () => {
+    it('User selects an item and place an order', () => {
 
         // Add 1st item in the cart and check it's shown on badge 
         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
@@ -17,7 +17,7 @@ describe('Saucedemo order completion', () => {
         cy.get('[data-test="shopping-cart-link"]').click();
         cy.get('[data-test="item-quantity"]').should('have.length', '1');
         cy.contains('[data-test="inventory-item-name"]', 'Sauce Labs Backpack');
-
+    
         //Click checkout and confirm the redirection
         cy.get('[data-test="checkout"]').click();
         cy.url().should('include', '/checkout-step-one.html');
@@ -46,7 +46,6 @@ describe('Saucedemo order completion', () => {
         cy.get('[data-test="complete-header"]').should('contain', 'Thank you for your order!');
         cy.get('[data-test="complete-text"]').should('contain', 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');
         cy.get('[data-test="back-to-products"]').should('be.visible');
-
 
     });
 });
