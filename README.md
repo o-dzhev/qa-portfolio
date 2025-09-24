@@ -14,6 +14,7 @@ cypress/
 |-- e2e/                    ← test files 
 |   |-- login.cy.js         ← login tests
 |   |-- make-order.cy.js    ← place an order test
+|   |-- product-list.cy.js  ← product list tests
 |-- fixtures/               ← test data 
 |   |-- example.json
 |   |-- users.json
